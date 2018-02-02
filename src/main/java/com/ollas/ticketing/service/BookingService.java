@@ -18,4 +18,20 @@ public class BookingService {
     public Ticket getTicketById(Integer ticketId){
         return dataAccess.findOne(ticketId);
     }
+
+    public Iterable<Ticket> getAllBookedTickets() {
+        return dataAccess.findAll();
+    }
+
+    public void deleteTicket(Integer ticketId) {
+        dataAccess.delete(ticketId);
+    }
+
+    public Ticket updateTicket(Integer ticketId, String newEmail){
+        Ticket ticketFromDb = dataAccess.findOne(ticketId);
+        ticketFromDb.setEmail(newEmail);
+        Ticket updateTicket = dataAccess.save(ticketFromDb);
+        return updateTicket;
+    }
+
 }

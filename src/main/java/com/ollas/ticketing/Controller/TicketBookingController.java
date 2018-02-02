@@ -22,5 +22,13 @@ public class TicketBookingController {
         return bookingService.getTicketById(ticketId);
 
     }
+    @GetMapping(value = "/ticket/alltickets")
+    public Iterable<Ticket> getAllBookedTickets(){
+        return bookingService.getAllBookedTickets();
+    }
+    @DeleteMapping(value = "/ticket/{ticketId}")
+    public void deleteTicket(@PathVariable("ticketId") Integer ticketId){
+        bookingService.deleteTicket(ticketId);
+    }
 
 }
