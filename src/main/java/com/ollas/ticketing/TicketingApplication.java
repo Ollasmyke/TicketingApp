@@ -12,7 +12,7 @@ import java.util.Date;
 public class TicketingApplication {
 
 	public static void main(String[] args) {
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(TicketingApplication.class, args);
+	    ConfigurableApplicationContext applicationContext = SpringApplication.run(TicketingApplication.class, args);
 
         BookingService bookingService = applicationContext.getBean("bookingService", BookingService.class);
         Ticket ticket = new Ticket();
@@ -23,5 +23,6 @@ public class TicketingApplication {
         ticket.setEmail("marshall@yahoo.com");
 
         bookingService.createTicket(ticket);
+
 	}
 }
